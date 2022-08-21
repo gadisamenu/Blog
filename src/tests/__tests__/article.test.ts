@@ -25,7 +25,7 @@ beforeEach(async () => {
     await newArticle.save()
     articleID = newArticle._id
 
-    userId = String(mongoose.Types.ObjectId());
+    userId = String(new mongoose.Types.ObjectId());
     const rating = {
         "stars": 5,
         "articleId": articleID,
@@ -139,7 +139,7 @@ describe('Rating Tests', ()=> {
         describe('given the RatingId does exist', () => {
             it('should return a 200 and the rating info.', async () => {
                 //lets create rating model object first to be sure there exists one in our db
-                const testUserId = String(mongoose.Types.ObjectId());
+                const testUserId = String(new mongoose.Types.ObjectId());
                 const rating = {
                     "stars": 5,
                     "userId": testUserId,
@@ -163,7 +163,7 @@ describe('Rating Tests', ()=> {
         describe('given the rating body is passed correctly', () => {
             it('should return a 201 and create the rating.', async () => {
                 //lets create rating model object first
-                const testUserId = String(mongoose.Types.ObjectId());
+                const testUserId = String(new mongoose.Types.ObjectId());
                 const rating = {
                     "stars": 5,
                     "userId": testUserId,
@@ -176,7 +176,7 @@ describe('Rating Tests', ()=> {
         });
         describe('given the rating body is passed incorrectly', () => {
             it('should return a 400.', async () => {
-                const testUserId = String(mongoose.Types.ObjectId());
+                const testUserId = String(new mongoose.Types.ObjectId());
                 const wrongRating = {
                     "stars": 5,
                     "articleId": articleID
@@ -190,7 +190,7 @@ describe('Rating Tests', ()=> {
         describe('given the rating update body is passed correctly', () => {
             it('should return a 200 and Update the rating.', async () => {
                 //lets create rating model object first
-                const testUserId = String(mongoose.Types.ObjectId());
+                const testUserId = String(new mongoose.Types.ObjectId());
                 const rating = {
                     "stars": 5,
                     "userId": testUserId,
@@ -211,7 +211,7 @@ describe('Rating Tests', ()=> {
         });
         describe('given the rating update body is passed incorrectly', () => {
             it('should return a 400.', async () => {
-                const testUserId = String(mongoose.Types.ObjectId());
+                const testUserId = String(new mongoose.Types.ObjectId());
                 const rating = {
                     "stars": 5,
                     "userId": testUserId,
